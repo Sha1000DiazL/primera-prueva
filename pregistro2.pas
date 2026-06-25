@@ -49,44 +49,50 @@ type
   l:local;
   contl: integer;
   canescuela: integer;
-  maxalum: integer;
+  maxalum1: integer	;	
+  maxalum2: integer	;	
+  maxescuela1: string;	
+  maxescuela2: string;	
+  
 begin
 	contl:=0;
-  p.ipro:=0;
   canescuela:=0;
-  maxalum:=0;
+  maxalum1:=0;
+ maxalum2:=0;
+	writeln ( 'escribe el id del proyecto:');
+	readln (p.ipro);
 while (p.ipro<> -1) do
 	begin 
 		writeln (' escribir la localidad:');
 		readln (l.localidad);
-		while (l.localidad<>l.localidad) do 
+		while (p.ipro<> -1) and  (l.localidad<>l.localidad) do 
 		begin
 			contl:= contl+1;
 			writeln (' escuela del proyecto:');
 			readln (p.nombrescuela);
-			while ( p.nombrescuela<>p.nombrescuela) do 
+			while (p.ipro<> -1) and ( p.nombrescuela<>p.nombrescuela) do 
 				begin
 					canescuela:= canescuela+1;
 					writeln (' escribir el titulo del proyecto :');
 					readln (p.tituloproye);
 					writeln (' escribir la cantidada de alumnos que participan:');
 					readln (p.canalum);
-					if p.canalum<maxalum then 
+					if p.canalum<maxalum1 then 
 					begin 
-						maxalum:=maxalum;
+						maxalum1:=maxalum1;
+						 maxescuela1:=p.nombrescuela;
+						 end;
+						else
+						if p.canalum<maxalum2 then
+						begin
+						 maxalum2:=maxalum2;
+						  maxescuela2:=p.nombrescuela;
+						end;
+				
 					end;
 
 				end;
 		end;
 	end;
 end;
-
-
-	
-	
-begin
-
-
-	 
-END.
 
