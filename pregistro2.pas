@@ -81,18 +81,24 @@ while (p.ipro<> -1) do
 					begin 
 						maxalum1:=maxalum1;
 						 maxescuela1:=p.nombrescuela;
-						 end;
+						 end
 						else
 						if p.canalum<maxalum2 then
 						begin
 						 maxalum2:=maxalum2;
 						  maxescuela2:=p.nombrescuela;
 						end;
-				
-					end;
-
 				end;
 		end;
 	end;
 end;
+
+
+	
+	
+begin
+
+
+	 
+END.
 
