@@ -14,7 +14,6 @@ C) El título de los proyectos de la localidad de Daireaux cuyo código posee ig
 pares e impares.
    
 }
-
 program registrosp;
 
 type
@@ -54,6 +53,7 @@ type
   maxescuela2: string;	
   actlocalidad: string;
   actescuela: string;
+  c:cordinador;
 begin
 	contl:=0;
   canescuela:=0;
@@ -72,26 +72,35 @@ while (p.ipro<> -1) do
 			writeln (' escuela del proyecto:');
 			readln (p.nombrescuela);
 			 actescuela:=p.nombrescuela;
-			while (p.ipro<> -1) and (actlocalidad=l.localidad) and (  actescuela<>p.nombrescuela) do 
+			 
+			 writeln (' escribe los datos del docente a cargo');
+			 cargarcordinador(c);
+			 
+			while (p.ipro<> -1) and (actlocalidad=l.localidad) and ( p.nombrescuela<>actescuela) do 
 				begin
 					canescuela:= canescuela+1;
 					writeln (' escribir el titulo del proyecto :');
 					readln (p.tituloproye);
 					writeln (' escribir la cantidada de alumnos que participan:');
 					readln (p.canalum);
-					if p.canalum<maxalum1 then 
+					if p.canalum>maxalum1 then 
 					begin 
-						maxalum1:=maxalum1;
-						 maxescuela1:=p.nombrescuela;
+					 maxalum2:=maxalum1;
+					 maxalum1:=p.canalum;
+					 maxescuela1:=p.nombrescuela;
+					 maxescuela2:=maxescuela1;
 						 end
 						else
-						if p.canalum<maxalum2 then
+						if p.canalum>maxalum2 then
 						begin
-						 maxalum2:=maxalum2;
+						 maxalum2:=p.canalum;
 						  maxescuela2:=p.nombrescuela;
 						end;
+						
 				end;
 		end;
+	writeln (' escribe le id del proximo proyecto');
+	readln (p.ipro);
 	end;
 end;
  function igualpareinpar( cod:proyecto): boolean;
@@ -113,9 +122,8 @@ end;
 			begin
 				
 				impar:=impar+1;
-				cod.ipro:= cod.ipro div 10;	
 			end;
-			
+			cod.ipro:= cod.ipro div 10;	
 		end;
 			igualpareinpar:=(par=impar); 
 end;
