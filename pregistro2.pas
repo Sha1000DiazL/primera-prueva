@@ -15,7 +15,6 @@ pares e impares.
    
 }
 
-
 program registrosp;
 
 type
@@ -92,7 +91,28 @@ while (p.ipro<> -1) do
 		end;
 	end;
 end;
-
+ function igualpareinpar( cod:proyecto): boolean;
+  var
+  par:integer;
+  impar:integer;
+  dig: integer;
+  begin
+	par:=0;
+	impar:=0;
+	while (cod.ipro <> 0) do 
+		begin 
+			dig:=cod.ipro mod 10;
+			if (dig mod 2 = 0) then
+			begin
+				par:= par + 1;
+				end
+			else
+				impar:=impar+1;
+			cod.ipro:= cod.ipro div 10;	
+			end;
+			igualpareinpar:=(par=impar); 
+			
+		end;
 
 	
 	
