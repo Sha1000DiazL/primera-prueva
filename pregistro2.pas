@@ -34,7 +34,7 @@ type
   localidad: string;
   docentes: cordinador;
   end;
-  procedure cargarcordinador(c:cordinador);
+  procedure cargarcordinador( var c:cordinador);
   begin
   writeln (' escribir el nombre del cordinador del proyecto :');
 		readln (c.nomyape);
@@ -43,7 +43,7 @@ type
 		writeln (' email:');
 		readln (c.email);
 		end;
- procedure cargaproyecto(p:proyecto);
+ procedure cargaproyecto(var p:proyecto);
   var
   l:local;
   contl: integer;
@@ -52,7 +52,8 @@ type
   maxalum2: integer	;	
   maxescuela1: string;	
   maxescuela2: string;	
-  
+  actlocalidad: string;
+  actescuela: string;
 begin
 	contl:=0;
   canescuela:=0;
@@ -64,12 +65,14 @@ while (p.ipro<> -1) do
 	begin 
 		writeln (' escribir la localidad:');
 		readln (l.localidad);
-		while (p.ipro<> -1) and  (l.localidad<>l.localidad) do 
+		actlocalidad:=l.localidad;
+		while (p.ipro<> -1) and  (actlocalidad=l.localidad) do 
 		begin
 			contl:= contl+1;
 			writeln (' escuela del proyecto:');
 			readln (p.nombrescuela);
-			while (p.ipro<> -1) and ( p.nombrescuela<>p.nombrescuela) do 
+			 actescuela:=p.nombrescuela;
+			while (p.ipro<> -1) and (actlocalidad=l.localidad) and (  actescuela<>p.nombrescuela) do 
 				begin
 					canescuela:= canescuela+1;
 					writeln (' escribir el titulo del proyecto :');
@@ -105,14 +108,17 @@ end;
 			if (dig mod 2 = 0) then
 			begin
 				par:= par + 1;
-				end
+			end
 			else
+			begin
+				
 				impar:=impar+1;
-			cod.ipro:= cod.ipro div 10;	
+				cod.ipro:= cod.ipro div 10;	
 			end;
-			igualpareinpar:=(par=impar); 
 			
 		end;
+			igualpareinpar:=(par=impar); 
+end;
 
 	
 	
@@ -121,4 +127,6 @@ begin
 
 	 
 END.
+
+	
 
