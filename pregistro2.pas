@@ -99,7 +99,7 @@ while (p.ipro<> -1) do
 						
 				end;
 		end;
-	writeln (' escribe le id del proximo proyecto');
+	writeln (' escribe le id del proximo proyecto o si quiere terminar la carga poner -1');
 	readln (p.ipro);
 	end;
 end;
